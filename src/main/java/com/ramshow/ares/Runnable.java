@@ -2,8 +2,6 @@ package com.ramshow.ares;
 
 import com.ramshow.ares.lib.Database;
 import com.ramshow.ares.logic.Inference;
-
-import java.awt.image.DataBuffer;
 import java.util.Scanner;
 
 /**

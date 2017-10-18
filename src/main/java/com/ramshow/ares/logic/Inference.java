@@ -15,7 +15,7 @@ public class Inference {
 
     private static Database db = new Database();
     private static Map<Integer,String> dataMap = db.getDataMap();
-    static String featureStr = null;
+    private static String featureStr = null;
 
     public static String anaylisis(String[] features) {
         //0.0将传入的字符串数组中的动物特征代号转存入List<Integer>中
@@ -59,11 +59,11 @@ public class Inference {
 
         int size = list.size();
         if(size==0){
-            sb.append("未识别到符合输入条件("+featureStr+")的动物");
+            sb.append("未识别到符合输入条件(").append(featureStr).append(")的动物");
         }else if(size == 1){
-            sb.append("识别到符合条件("+featureStr+")的动物：" + dataMap.get(list.get(0)));
+            sb.append("识别到符合条件(").append(featureStr).append(")的动物：").append(dataMap.get(list.get(0)));
         }else{
-            sb.append("识别到符合条件("+featureStr+")的动物可能为：");
+            sb.append("识别到符合条件(").append(featureStr).append(")的动物可能为：");
             for(int num : list){
                 sb.append(dataMap.get(num)).append("、");
             }
