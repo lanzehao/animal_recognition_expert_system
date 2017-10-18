@@ -1,5 +1,9 @@
 package com.ramshow.ares;
 
+import com.ramshow.ares.lib.Database;
+import com.ramshow.ares.logic.Inference;
+
+import java.awt.image.DataBuffer;
 import java.util.Scanner;
 
 /**
@@ -13,11 +17,11 @@ public class Runnable {
             String input = request();
             if(ALL_FEATURES.equals(input)){
                 System.out.println(ALL_FEATURES+ " List:");
+                Database db = new Database();
+                db.outputAllFeatures();
             }else{
                 String[] features = input.split(" ");
-                for(String str : features){
-                    System.out.println(str);
-                }
+                System.out.println(Inference.anaylisis(features));
                 break;
             }
         }
@@ -27,7 +31,7 @@ public class Runnable {
 
     private static String request(){
         Scanner scan = new Scanner(System.in);
-        System.out.println("请输入动物特征(中间加空格，Enter键结束，输入"+ALL_FEATURES+"获取特征列表)：");
+        System.out.println("请输入动物特征【代号】(中间加空格，Enter键结束，输入"+ALL_FEATURES+"获取特征列表)：");
         return scan.nextLine();
     }
 
